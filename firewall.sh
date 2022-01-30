@@ -20,8 +20,12 @@ iptables -t nat -A POSTROUTING -o $int_wan -j MASQUERADE
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 iptables -A INPUT -i lo -j ACCEPT
 
+#Ratelimit SSH for attack protection
+iptables -A INPUT -p tcp --dport 22 -m state --state NEW -m recent --update --seconds 60 --hitcount 4 -j DROP
+iptables -A INPUT -p tcp --dport 22 -m state --state NEW -m recent --set
+iptables -A INPUT -p tcp --dport 22 -m state --state NEW -j ACCEPT
+
 # Open ports
-iptables -A INPUT -p tcp --dport 22 -j ACCEPT              # SSH
 iptables -A INPUT -i $int_lan -p tcp --dport 53 -j ACCEPT  # DNS
 iptables -A INPUT -i $int_lan -p udp --dport 67 -j ACCEPT  # DHCP
 
