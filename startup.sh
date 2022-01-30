@@ -7,3 +7,4 @@ cd "$(dirname "$0")"
 ./network.sh
 ./firewall.sh
 ./dhcp.sh
+./dns.sh

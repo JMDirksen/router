@@ -11,6 +11,17 @@ EOT
 
 cat <<EOT > /etc/dhcp/dhcpd.conf
 authoritative;
+
+ddns-updates on;
+ignore client-updates;
+update-static-leases on;
+ddns-rev-domainname "in-addr.arpa.";
+deny client-updates;
+do-forward-updates on;
+update-optimization off;
+update-conflict-detection off;
+include /etc/dhcp/rndc.key;
+
 subnet $subnet netmask $netmask {
   range $range;
   option domain-name-servers $router_ip;
