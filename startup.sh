@@ -6,5 +6,5 @@ cd "$(dirname "$0")"
 ./general.sh
 ./network.sh
 ./firewall.sh
-./dhcp.sh
 ./dns.sh
+./dhcp.sh

@@ -26,7 +26,7 @@ iptables -A INPUT -p tcp --dport 22 -m state --state NEW -m recent --set
 iptables -A INPUT -p tcp --dport 22 -m state --state NEW -j ACCEPT
 
 # Open ports
-iptables -A INPUT -i $int_lan -p tcp --dport 53 -j ACCEPT  # DNS
+iptables -A INPUT -i $int_lan -p udp --dport 53 -j ACCEPT  # DNS
 iptables -A INPUT -i $int_lan -p udp --dport 67 -j ACCEPT  # DHCP
 
 # Allow forwarding
