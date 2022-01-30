@@ -11,6 +11,10 @@ Ubuntu Server 20.04
 
     apt install isc-dhcp-server bind9
 
+    cd router
+    nano config.sh
+    ./startup.sh
+
 
 # Run at startup
 
