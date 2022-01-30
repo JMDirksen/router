@@ -18,7 +18,7 @@ network:
         addresses: [$nameservers]
     $int_lan:
       dhcp4: no
-      addresses: [$router_ip]
+      addresses: [$router_ip$router_ip_cidr]
 EOT
 
 netplan apply

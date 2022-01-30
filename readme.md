@@ -4,6 +4,8 @@
     cd
     git clone https://github.com/JeftaDirksen/router.git
 
+    apt install isc-dhcp-server bind9
+
 
 # Run at startup
 
