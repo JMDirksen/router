@@ -1,3 +1,8 @@
+# OS
+
+Ubuntu Server 20.04
+
+
 # Setup
 
     sudo -s
